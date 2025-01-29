@@ -1,6 +1,8 @@
-tree-root /deep/ {
+tree-root {
   height: 38%;
-  tree-viewport {
+
+  // Use ::ng-deep to apply styles within component boundaries
+  ::ng-deep tree-viewport {
     height: 38%;
   }
 }
@@ -58,6 +60,7 @@ h3 {
 .mat-cell {
   font-size: 16px;
 }
+
 .mat-table {
   overflow: auto;
   max-height: 500px;

@@ -6,7 +6,7 @@ from .tasks import report_builder_run_scheduled_report
 from .models import ScheduledReport
 
 try:
-    from django.core.urlresolvers import reverse
+    from django.urls import reverse
 except ImportError:
     from django.urls import reverse
 

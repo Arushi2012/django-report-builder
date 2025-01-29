@@ -20,7 +20,7 @@ import datetime
 import re
 
 try:
-    from django.core.urlresolvers import reverse
+    from django.urls import reverse
 except ImportError:
     from django.urls import reverse
 

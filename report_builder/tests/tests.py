@@ -21,7 +21,7 @@ from datetime import date, datetime, timedelta, time as dtime
 from django.contrib.auth import get_user_model
 
 try:
-    from django.core.urlresolvers import reverse
+    from django.urls import reverse
 except ImportError:
     from django.urls import reverse
 
@@ -84,7 +84,7 @@ class ReportBuilderTests(TestCase):
 
         self.assertTrue(callable(get_limit_choices_to_callable))
         self.assertTrue(isinstance(lookup_dict['pk__in'], QuerySet))
-        self.assertQuerysetEqual(lookup_dict['pk__in'], map(repr, models), ordered=False)
+        self.assertQuerySetEqual(lookup_dict['pk__in'], map(repr, models), ordered=False)
 
     def test_report_builder_reports(self):
         url = '/report_builder/api/reports/'
@@ -229,7 +229,7 @@ class ReportBuilderTests(TestCase):
         response = self.client.put(f'/report_builder/api/report/{report.id}/',
                                     data=json.dumps(data),
                                     content_type='application/json',
-                                    HTTP_X_REQUESTED_WWITH='XMLHttpRequest')
+                                    headers={"x-requested-wwith": 'XMLHttpRequest'})
         self.assertEqual(response.status_code, 200)
 
         self.assertIsNone(report.displayfield_set.all()[0].sort)

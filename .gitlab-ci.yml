@@ -7,7 +7,7 @@ variables:
 test_py36:
   cache:
     paths:
-    - ~/.cache/pip/
+      - ~/.cache/pip/
   script:
     - pip install tox "poetry==$POETRY_VERSION"
     - tox
@@ -24,6 +24,12 @@ test_py38:
   script:
     - pip install tox "poetry==$POETRY_VERSION"
     - tox -c tox.py38.ini
+
+test_py312:
+  image: python:3.12-slim
+  script:
+    - pip install tox "poetry==$POETRY_VERSION"
+    - tox -c tox.py312.ini
 
 test_coverage:
   script:
