@@ -42,6 +42,7 @@ media
 # dependencies
 /node_modules
 /js/node_modules
+venv/
 
 # IDEs and editors
 /.idea
