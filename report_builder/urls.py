@@ -6,7 +6,7 @@ from .api import views as api_views
 from django.conf import settings
 
 router = routers.DefaultRouter()
-router.register(r'reports', api_views.ReportViewSet, basename='report-list')
+router.register(r'reports', api_views.ReportViewSet, basename='report')
 router.register(r'report', api_views.ReportNestedViewSet, basename='report-nested')
 router.register(r'formats', api_views.FormatViewSet, basename='format')
 router.register(r'filterfields', api_views.FilterFieldViewSet, basename='filterfield')
